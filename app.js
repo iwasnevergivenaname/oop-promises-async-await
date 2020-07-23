@@ -76,5 +76,12 @@ fetch("https://api.github.com/users/iwasnevergivenaname")
 })
 .then(data => {
     console.log(data);
+    let githubURL = data.url;
+    let githubUserName = data.login;
+    let githubName = data.name;
+
+    let han = new GitHubProfile(githubUserName, githubName, githubURL);
+    console.log(han.intro());
 });
+
 
