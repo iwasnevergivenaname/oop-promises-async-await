@@ -66,7 +66,7 @@
 //     intro() {
 //         console.log(`my name is ${this.name} and i chose
 //         ${this.username} because i like the office and you can
-//         find my repos at ${this.url}`);
+//         find my repos at @${this.url}`);
 //     }
 // }
 //
@@ -85,7 +85,7 @@
 // });
 
 
-let isMomHappy = true;
+// let isMomHappy = true;
 //
 // // Promise
 // let willIGetNewPhone = new Promise(
@@ -103,22 +103,50 @@ let isMomHappy = true;
 //
 //     }
 // );
+//
+// let willIGetNewPhone = new Promise((resolve, reject) => {
+//     if (isMomHappy) {
+//             let phone = {
+//                 brand: 'iPhone',
+//                 color: 'white'
+//             };
+//             resolve(phone); // fulfilled
+//         } else {
+//             let reason = new Error('mom is not happy');
+//             reject(reason); // reject
+//         }
+// })
+//
+//
+//
+// willIGetNewPhone.then(result => [
+//     console.log(result)
+// ])
+//
+// async function printUsers() {
+//     const hanEndpoint = "https://api.github.com/users/iwasnevergivenaname";
+//     const lizEndpoint = "https://api.github.com/users/Lizzwest";
+//     let han = await fetch(hanEndpoint).then(res => {
+//             return res.json();
+//         console.log(han);
+//         }
+//     );
+//
+//     let lizz = await fetch(lizEndpoint).then(res => res.json());
+//     console.log(han);
+//     console.log(lizz);
+// }
+//
+// printUsers();
 
-let willIGetNewPhone = new Promise((resolve, reject) => {
-    if (isMomHappy) {
-            let phone = {
-                brand: 'iPhone',
-                color: 'white'
-            };
-            resolve(phone); // fulfilled
-        } else {
-            let reason = new Error('mom is not happy');
-            reject(reason); // reject
-        }
-})
+async function printFB() {
+    const fbEndpoint = "https://api.github.com/users/facebook";
+    let fb = await fetch(fbEndpoint).then(res => res.json());
+    console.log(fb);
+    let login = fb.login;
+    console.log(login);
+    return login;
 
+}
 
-
-willIGetNewPhone.then(result => [
-    console.log(result)
-])
+printFB();
